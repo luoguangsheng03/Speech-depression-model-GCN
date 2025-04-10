@@ -1,0 +1,23 @@
+1. label.csv
+   - patient_id: patient number, file name of the segmented audio {patient_id}.npy
+  - label: label, 1 for depression, 0 for normal
+  - age, education, work, marriage are sociological attribute codes
+ - duration: effective audio duration (seconds)
+ - alcohol, drug, social_life, CSA, PBI, SL, PBI_2: codes based on questionnaire answers, answers are the results of extracting keywords from the audio
+ - s1-s9: depression level codes
+
+
+           
+2 Interviewee audio part: This folder contains the interviewee audio part captured based on the ASR results.
+      
+     - Audio_Feature.zip: extracted audio features, each folder represents a feature extraction method, stored in h5py file format
+    
+    '''
+    import h5py
+    
+    file = h5py.File({FILENAME}, 'wr')
+    feature = file[KEY]
+    '''
+   The KEY is patient_id
+    
+3. egemaps.h5, phonation_static.h5, phonological_static.h5, and prosody_static.h5 respectively describe the extracted audio features.
